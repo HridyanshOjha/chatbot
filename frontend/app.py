@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.title("AI Chatbot")
+st.title("sonu")
 
 user_input = st.text_input("Ask something:")
 
