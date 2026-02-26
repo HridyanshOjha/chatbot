@@ -10,8 +10,7 @@ api_key = os.getenv("GEMINI_API_KEY")
 print("API KEY:", api_key)
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel("gemini-1.5-flash")
-
+model = genai.GenerativeModel("gemini-1.0-pro")
 @app.route("/")
 def home():
     return "Backend with Gemini API is running!"
@@ -25,7 +24,7 @@ def chat():
         response = model.generate_content(user_message)
         bot_reply = response.text
     except Exception as e:
-        bot_reply = "Error generating response. Please try again."
+        bot_reply = str(e)
 
     return jsonify({"response": bot_reply})
 
